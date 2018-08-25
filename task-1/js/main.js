@@ -39,3 +39,25 @@ function reverse(srcString) {
 
 // let str = 'Последние две строки помечены.';
 // console.log( reverse(str) );
+
+
+
+// ==================== count ====================
+function count(srcString, ch) {
+  let count = 0;
+  let index = 0;
+  while (1) {
+    let foundIndex = indexOf(srcString, ch, index);
+    if (foundIndex === -1) {
+      break;
+    }
+    count++;
+    index = foundIndex + 1;
+  }
+
+  return count;
+}
+
+// let target = 'o';
+// let str = 'Semicolon';
+// console.log( count(str, target) );
