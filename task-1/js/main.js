@@ -19,3 +19,23 @@ function indexOf(srcString, ch, fromIdx) {
 // let char = 'd';
 // let index = 2;
 // console.log( indexOf(str, char, index) );
+
+
+
+// ==================== reverse ====================
+function reverse(srcString) {
+  if (srcString === undefined || (typeof srcString) !== 'string') {
+    return 'srcString';
+  }
+
+  let result = '';
+
+  for (let i = srcString.length - 1; i >= 0; i--) {
+    result += srcString[i];
+  }
+
+  return result;
+}
+
+// let str = 'Последние две строки помечены.';
+// console.log( reverse(str) );
