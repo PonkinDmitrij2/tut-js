@@ -61,3 +61,33 @@ function count(srcString, ch) {
 // let target = 'o';
 // let str = 'Semicolon';
 // console.log( count(str, target) );
+
+
+
+// ==================== charCount ====================
+function charCount(srcString) {
+  let temp = '';
+  let result = [];
+
+  next:
+  for (let i = 0; i < srcString.length; i++) {
+    if (srcString[i] === ',' || srcString[i] === '.' || srcString[i] === ' ') {
+      continue;
+    }
+
+    temp = srcString[i] + '-' + count(srcString, srcString[i]);
+
+    for (let j = 0; j < result.length; j++) {
+      if (result[j] === temp) {
+        continue next;
+      }
+    }
+
+    result.push(temp);
+  }
+
+  return result;
+}
+
+let str = 'Hello, world';
+console.log( charCount(str) );
