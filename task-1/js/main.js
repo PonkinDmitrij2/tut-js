@@ -89,5 +89,5 @@ function charCount(srcString) {
   return result;
 }
 
-let str = 'Hello, world';
-console.log( charCount(str) );
+// let str = 'Hello, world';
+// console.log( charCount(str) );
