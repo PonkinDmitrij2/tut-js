@@ -201,3 +201,27 @@ function minMaxDigit(n) {
 
 // let num = 5.98;
 // console.log( minMaxDigit(num) );
+
+
+
+// ==================== getShortesAndLongesttWords ====================
+function getShortesAndLongesttWords(srcString) {
+  let arrOfWords = srcString.split(' ');
+  let shortestWord = arrOfWords[0];
+  let longestWord = arrOfWords[0];
+
+  for (let i = 1; i < arrOfWords.length; i++) {
+    if (arrOfWords[i].length < shortestWord.length) {
+      shortestWord = arrOfWords[i];
+    }
+
+    if (arrOfWords[i].length > longestWord.length) {
+      longestWord = arrOfWords[i];
+    }
+}
+
+return 'shortest word' + ' - ' + shortestWord + '\n' + 'longest word' + ' - ' + longestWord;
+}
+
+// let str = 'веб-программирование a';
+// console.log( getShortesAndLongesttWords(str) );
