@@ -135,3 +135,22 @@ function maxDigit(n) {
 
 // let num = 5.98;
 // console.log( maxDigit(num) );
+
+
+
+// ==================== getShortestWord ====================
+function getShortestWord(srcString) {
+  let arrOfWords = srcString.split(' ');
+  let result = arrOfWords[0];
+
+  for (let i = 1; i < arrOfWords.length; i++) {
+    if (arrOfWords[i].length < result.length) {
+      result = arrOfWords[i];
+    }
+  }
+
+  return result;
+}
+
+let str = 'Мы успешно изучаем веб-программирование';
+console.log( getShortestWord(str) );
