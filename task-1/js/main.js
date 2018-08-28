@@ -111,5 +111,27 @@ function minDigit(n) {
   return result;
 }
 
-let num = 5.98;
-console.log( minDigit(num) );
+// let num = 5.98;
+// console.log( minDigit(num) );
+
+
+
+// ==================== maxDigit ====================
+function maxDigit(n) {
+  let arrStrings = String(n).split('');
+  let result = +arrStrings[0];
+
+  for (let i = 1; i < arrStrings.length; i++) {
+    if (arrStrings[i] === '.') {
+      continue;
+    }
+    if (+arrStrings[i] > result) {
+      result = +arrStrings[i];
+    }
+  }
+
+  return result;
+}
+
+// let num = 5.98;
+// console.log( maxDigit(num) );
