@@ -173,3 +173,31 @@ function getLongestWord(srcString) {
 
 // let str = 'Мы успешно изучаем веб-программирование';
 // console.log( getLongestWord(str) );
+
+
+
+// ==================== minMaxDigit ====================
+function minMaxDigit(n) {
+  let arrStrings = String(n).split('');
+  let minDigit = +arrStrings[0];
+  let maxDigit = +arrStrings[0];
+
+  for (let i = 1; i < arrStrings.length; i++) {
+    if (arrStrings[i] === '.') {
+      continue;
+    }
+
+    if (+arrStrings[i] < minDigit) {
+      minDigit = +arrStrings[i];
+    }
+
+    if (+arrStrings[i] > maxDigit) {
+      maxDigit = +arrStrings[i];
+    }
+  }
+
+  return 'min digit' + ' - ' + minDigit + '\n' + 'max digit' + ' - ' + maxDigit;
+}
+
+// let num = 5.98;
+// console.log( minMaxDigit(num) );
