@@ -251,3 +251,10 @@ function charCount(srcString) {
 
   return res;
 }
+
+
+
+// ==================== minDigit version 2 ====================
+function minDigit(digit1, digit2) {
+  return (digit1 < digit2) ? digit1 : digit2;
+}
