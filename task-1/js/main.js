@@ -225,3 +225,29 @@ return 'shortest word' + ' - ' + shortestWord + '\n' + 'longest word' + ' - ' + 
 
 // let str = 'веб-программирование a';
 // console.log( getShortesAndLongesttWords(str) );
+
+
+
+// ==================== charCount version 2 ====================
+function charCount(srcString) {
+  const res = [];
+  const spaceSymbols = [',', '.', ' ', ';', '!', '?'];
+
+  for (let i = 0; i < srcString.length; i++) {
+    if ( spaceSymbols.indexOf(srcString[i]) >= 0 )
+      continue;
+
+    let count = 0;
+    for (let j = 0; j < srcString.length; j++) {
+      if (srcString[j] === srcString[i]) 
+        count++;
+    }
+
+    let temp = srcString[i] + '-' + count;
+    if (res.indexOf(temp) >= 0)
+      continue;
+    res.push(temp);
+  }
+
+  return res;
+}
