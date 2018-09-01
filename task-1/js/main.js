@@ -265,3 +265,18 @@ function minDigit(digit1, digit2) {
 function maxDigit(digit1, digit2) {
   return (digit1 > digit2) ? digit1 : digit2;
 }
+
+
+
+// ==================== getDigit ====================
+function getDigit(n, fn) {
+  const arrStrings = String(n).split('');
+  let res = Number(arrStrings[0]);
+
+  for (let i = 1; i < arrStrings.length; i++) {
+    if (arrStrings[i] === '.') continue;
+    res = fn(res, arrStrings[i]);
+  }
+
+  return res;
+}
