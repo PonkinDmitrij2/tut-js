@@ -294,3 +294,17 @@ function getShortestWord(word1, word2) {
 function getLongestWord(word1, word2) {
   return (word1.length > word2.length) ? word1 : word2;
 }
+
+
+
+// ==================== getWord ====================
+function getWord(srcString, fn) {
+  const arrOfWords = srcString.split(' ');
+  let result = arrOfWords[0];
+
+  for (let i = 1; i < arrOfWords.length; i++) {
+    result = fn(result, arrOfWords[i]);
+  }
+
+  return result;
+}
