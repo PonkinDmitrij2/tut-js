@@ -280,3 +280,10 @@ function getDigit(n, fn) {
 
   return res;
 }
+
+
+
+// ==================== getShortestWord v2 ====================
+function getShortestWord(word1, word2) {
+  return (word1.length < word2.length) ? word1 : word2;
+}
