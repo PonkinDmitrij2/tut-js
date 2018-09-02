@@ -287,3 +287,10 @@ function getDigit(n, fn) {
 function getShortestWord(word1, word2) {
   return (word1.length < word2.length) ? word1 : word2;
 }
+
+
+
+// ==================== getLongestWord v2 ====================
+function getLongestWord(word1, word2) {
+  return (word1.length > word2.length) ? word1 : word2;
+}
