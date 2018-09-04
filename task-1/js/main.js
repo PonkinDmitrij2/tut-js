@@ -323,3 +323,20 @@ arr.forEach(function(item) {
 
   return Math.min(...res);
 }
+
+
+
+// ==================== getDayOfWeek ====================
+function getDayOfWeek() {
+  const day = new Date();
+  const weekDay = [
+    'Воскресенье',
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота'
+  ];
+  return weekDay[day.getDay()];
+}
