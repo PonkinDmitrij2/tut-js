@@ -308,3 +308,18 @@ function getWord(srcString, fn) {
 
   return result;
 }
+
+
+
+// ==================== minDigit v3 ====================
+function minDigit(n) {
+  const arr = String(n).split('');
+  const res = [];
+
+arr.forEach(function(item) {
+  if (item !== '.')
+    res.push( Number(item) );
+});
+
+  return Math.min(...res);
+}
