@@ -31,3 +31,21 @@ function findDuplicates(array) {
 
 // const arr2 = ['one', true, 2, 3, 4, 4, 4, 5, 6, 7, 7, 7, 'two', 'one', true];
 // console.log( findDuplicates(arr2) );
+
+
+
+// ==================== isPalindrom (recursive solution) ====================
+function isPalindrome(candidate) {
+  if (candidate.length <= 1) {
+    return true;
+  }
+
+  if (candidate[0] !== candidate[candidate.length - 1]) {
+    return false;
+  }
+
+  return isPalindrome(candidate.slice(1, candidate.length - 1));
+}
+
+// const str = 'radar';
+// console.log( isPalindrome(str) );
