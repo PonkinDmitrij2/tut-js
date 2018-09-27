@@ -49,3 +49,10 @@ function isPalindrome(candidate) {
 
 // const str = 'radar';
 // console.log( isPalindrome(str) );
+
+
+
+// ==================== isPalindrom v2 ====================
+function isPalindrome(candidate) {
+  return candidate === candidate.split("").reverse().join("");
+}
