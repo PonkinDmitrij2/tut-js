@@ -56,3 +56,19 @@ function isPalindrome(candidate) {
 function isPalindrome(candidate) {
   return candidate === candidate.split("").reverse().join("");
 }
+
+
+
+// ==================== findPalindroms ====================
+function findPalindroms(srcString) {
+  const arrWords = srcString.split(' ');
+  const res = [];
+
+  arrWords.forEach(function(item) {
+    if (isPalindrome(item)) {
+      res.push(item);
+    }
+  });
+
+  return res;
+}
