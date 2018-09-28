@@ -72,3 +72,16 @@ function findPalindroms(srcString) {
 
   return res;
 }
+
+
+
+// ==================== splitString ====================
+function splitString(srcString, splitBy) {
+  const tempChar = splitBy[0];
+
+  for (let i = 1; i < splitBy.length; i++) {
+    srcString = srcString.split(splitBy[i]).join(tempChar);
+  }
+
+  return srcString.split(tempChar);
+}
