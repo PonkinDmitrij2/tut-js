@@ -102,3 +102,17 @@ function findPalindroms(srcString, splitBy = [' ']) {
 
   return res;
 }
+
+
+
+// ==================== sortWords ====================
+// modified to use different whitespace characters
+function sortWords(srcString, splitBy = [' ']) {
+  const arrWords = splitString(srcString, splitBy);
+
+  arrWords.sort(function(a, b) {
+    return a.length - b.length;
+  })
+
+  return arrWords.join(' ');
+}
