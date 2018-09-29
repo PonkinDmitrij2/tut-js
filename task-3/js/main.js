@@ -85,3 +85,20 @@ function splitString(srcString, splitBy) {
 
   return srcString.split(tempChar);
 }
+
+
+
+// ==================== findPalindroms ====================
+// modified to use different whitespace characters
+function findPalindroms(srcString, splitBy = [' ']) {
+  const arrWords = splitString(srcString, splitBy);
+  const res = [];
+
+  arrWords.forEach(function(item) {
+    if (isPalindrome(item)) {
+      res.push(item);
+    }
+  });
+
+  return res;
+}
