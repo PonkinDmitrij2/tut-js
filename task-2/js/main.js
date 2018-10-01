@@ -23,3 +23,16 @@ function recursiveCharCount(srcString, ch) {
 
   return 1 + recursiveCharCount(srcString.slice(foundIndex + 1), ch);
 }
+
+
+
+// ==================== detectArguments ====================
+function detectArguments() {
+  console.log(`${detectArguments.name} (`);
+
+  for (let i = 0; i < arguments.length; i++) {
+    let count = 1 + i;
+    console.log(`# ${count} ${arguments[i]}: ${typeof arguments[i]}`);
+  }
+  console.log(');')
+}
