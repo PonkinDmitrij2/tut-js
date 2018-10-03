@@ -116,3 +116,29 @@ function sortWords(srcString, splitBy = [' ']) {
 
   return arrWords.join(' ');
 }
+
+
+
+// ==================== splitString v2 ====================
+function splitString(srcString, splitBy) {
+  const words = [];
+  let tmp = '';
+
+  for (let i = 0; i < srcString.length; i++) {
+
+    if (splitBy.indexOf(srcString[i]) >= 0) {
+      if (tmp) {
+        words.push(tmp);
+        tmp = '';
+      }
+      continue;
+    }
+
+    tmp += srcString[i];
+  }
+
+  if (tmp)
+    words.push(tmp);
+
+  return words.join(' ');
+}
