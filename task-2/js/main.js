@@ -36,3 +36,15 @@ function detectArguments() {
   }
   console.log(');')
 }
+
+
+
+// ==================== detectThisType ====================
+function detectThisType() {
+  console.log(this);
+}
+
+// detectThisType.call({});
+// detectThisType.call([]);
+// detectThisType.call(null);
+// detectThisType();
