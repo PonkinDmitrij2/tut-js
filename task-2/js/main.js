@@ -48,3 +48,26 @@ function detectThisType() {
 // detectThisType.call([]);
 // detectThisType.call(null);
 // detectThisType();
+
+
+
+// ==================== debugDecorator ====================
+function debugDecorator(fn) {
+  return function() {
+    const time0 = performance.now();
+    const result = fn(...arguments);
+    const time1 = performance.now();
+
+    detectArguments(...arguments);
+    console.log(`result: ${result}`);
+    console.log(`time: ${time1 - time0}ms`);
+  };
+}
+
+// function helloAndReturn(msg) {
+//   alert(msg);
+//   return msg;
+// }
+
+// const decoratedHelloAndReturn = debugDecorator(helloAndReturn);
+// decoratedHelloAndReturn('Hello, world!');
