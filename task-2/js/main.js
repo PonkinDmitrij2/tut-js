@@ -71,3 +71,10 @@ function debugDecorator(fn) {
 
 // const decoratedHelloAndReturn = debugDecorator(helloAndReturn);
 // decoratedHelloAndReturn('Hello, world!');
+
+
+
+// ==================== detectThisType v2 ====================
+function detectThisType() {
+  console.log(typeof this);
+}
