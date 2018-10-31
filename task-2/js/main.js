@@ -78,3 +78,29 @@ function debugDecorator(fn) {
 function detectThisType() {
   console.log(typeof this);
 }
+
+
+
+// ==================== debugDecorator v2 ====================
+function debugDecorator(fn) {
+  return function() {
+    let result;
+    let time0;
+    let time1;
+
+    detectArguments.apply(null, arguments);
+
+    time0 = performance.now();
+
+    try {
+      result = fn.apply(null, arguments);
+    } catch (err) {
+      result = `Error - ${err}`;
+    } finally {
+      time1 = performance.now();
+    }
+
+    console.log(`result: ${result}`);
+    console.log(`time: ${time1 - time0}ms`);
+  };
+}
