@@ -9,7 +9,7 @@ Component.prototype.initComponent = function(containerId) {
 };
 
 Component.prototype.render = function() {
-  return this.component;
+  
 };
 
 Component.prototype.renderTo = function(containerId) {
@@ -28,34 +28,44 @@ Component.prototype.attachEvents = function() {
   });
 };
 
-function TimerComponent(events, className) {
-  const input = document.createElement('input');
-  input.className = `${className}__field`;
-  input.setAttribute('placeholder', 'Ввидите число');
+function TimerComponent(className) {
+  this.className = className;
 
-  const btn = document.createElement('button');
-  btn.className = `${className}__btn`;
-  btn.setAttribute('type', 'button');
-  btn.innerHTML = 'Start';
-
-  this.events = events;
-  this.component = document.createElement('div');
-  this.component.className = className;
-  this.component.appendChild(input);
-  this.component.appendChild(btn);
+  this.events = {
+    [`.${className}__btn`]: {
+      click: this.handleClick
+    }
+  };
 }
 
 Object.setPrototypeOf(TimerComponent.prototype, Component.prototype);
 
-// ==========================================================================================
+TimerComponent.prototype.render = function() {
+  const container = document.createElement('div');
+  container.className = this.className;
 
-function timerHandler(event) {
-  const input = this.previousElementSibling;
-  let value = Number(input.value);
+  const input = document.createElement('input');
+  input.className = `${this.className}__field`;
+  input.setAttribute('placeholder', 'Введите число');
+
+  const btn = document.createElement('button');
+  btn.className = `${this.className}__btn`;
+  btn.setAttribute('type', 'button');
+  btn.innerHTML = 'Start';
+
+  container.appendChild(input);
+  container.appendChild(btn);
+
+  return container;
+};
+
+TimerComponent.prototype.handleClick = function(event) {
+  const field = this.previousElementSibling;
+  let fieldValue = Number(field.value);
   let timerId;
 
-  if ( isNumeric(value) && value > 0 ) {
-    input.setAttribute('readonly', '');
+  if (fieldValue > 0) {
+    field.setAttribute('readonly', '');
     this.setAttribute('disabled', '');
     countdown();
   } else {
@@ -63,34 +73,15 @@ function timerHandler(event) {
   }
 
   function countdown() {
-    if (value === 0) {
-      input.removeAttribute('readonly');
+    if (fieldValue === 0) {
+      field.removeAttribute('readonly');
       event.target.removeAttribute('disabled');
       clearTimeout(timerId);
     } else {
       timerId = setTimeout(countdown, 1000);
     }
 
-    input.value = value;
-    value--;
-  }
+    field.value = fieldValue;
+    fieldValue--;
+  };
 }
-
-function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-}
-
-const obj1 = {
-  '.timer1__btn': {
-    click: timerHandler
-  }
-};
-
-const obj2 = {
-  '.timer2__btn': {
-    click: timerHandler
-  }
-};
-
-new TimerComponent(obj1, 'timer1').initComponent('test');
-new TimerComponent(obj2, 'timer2').initComponent('test-2'); 
